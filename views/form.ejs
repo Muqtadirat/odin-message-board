@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>New entry — Digital Grimoire</title>
+</head>
+<body>
+<div class="form-wrap">
+  <h1>new_entry.write()</h1>
+  <p class="subtitle">// fill the runes below to inscribe your message</p>
+  <form action="/new" method="post">
+      <label for="author">$ signed_by</label>
+      <input type="text" name="author" id="author" placeholder="your name">
+      <label for="message">$ message_body</label>
+      <textarea name="message" id="message" placeholder="type your incantation..."></textarea>
+      <button type="submit">inscribe →</button>
+  </form>
+  <a class="nav-link" href="/">&lt; cd ..</a>
+</div>
+</body>
+</html>
+
+<!-- <form action="/new" method="post">
+    <p>Hi, enter your message</p>
+    <div>
+        <input type="text" name="author" id="author">
+        <textarea name="message" id="message"></textarea>
+    </div>
+    <button type="submit">Submit</button>
+</form> -->

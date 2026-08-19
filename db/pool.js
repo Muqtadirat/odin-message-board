@@ -1,6 +1,9 @@
 const { Pool } = require("pg");
 require("dotenv").config();
 
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("DATABASE_URL exists:", !!process.env.DATABASE_URL);
+
 module.exports = new Pool({
   connectionString:
     process.env.NODE_ENV === "production"

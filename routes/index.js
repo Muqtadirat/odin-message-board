@@ -10,4 +10,4 @@ router.use("/", homeRouter);
 router.use("/new", newRouter);
 router.use("/details", detailsRouter)
 
-module.exports = router;
+module.exports = router; 

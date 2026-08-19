@@ -13,10 +13,10 @@
   <p class="subtitle">// inscribed entries, most recent first</p>
   <hr class="divider">
 
-  <% messages.forEach(({ id, text, user, added }) => { %>
+  <% posts.forEach(({ id, message, author, added }) => { %>
     <div class="message-card">
-      <p><span class="label">user:</span> <span class="value"><%= user %></span></p>
-      <p><span class="label">msg:</span> <span class="value"><%= text %></span></p>
+      <p><span class="label">user:</span> <span class="value"><%= author %></span></p>
+      <p><span class="label">msg:</span> <span class="value"><%= message %></span></p>
       <p><span class="label">timestamp:</span> <span class="value"><%= added %></span></p>
       <a class="expand" href="/details/<%= id %>">cat entry_<%= id %>.log ></a>
     </div>
@@ -28,26 +28,3 @@
 </html>
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Board</title>
-</head>
-<body>
-<div>
-
-  <% messages.forEach(({ id,text, user, added }) => { %>
-        <div>
-    <p><%= `Ted: ${id}` %></p>
-    <p><%= `Text: ${text}` %></p>
-    <p><%= `User: ${user}` %></p>
-    <p><%= `Added: ${added}` %></p>
-</div>
-<a href="/details/<%= id %>">Expand</a>
-  <% }) %>
-</div>
-<a href="/new">Enter message</a>
-</body>
-</html> -->

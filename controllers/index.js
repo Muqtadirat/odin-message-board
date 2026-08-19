@@ -48,7 +48,8 @@ const createPost = [
 
 async function getAllPosts(req, res) {
   const posts = await db.getAllMessages();
-  const formatted = posts.map((post) => ({
+
+  return posts.map((post) => ({
     ...post,
     added: new Date(post.added).toLocaleString("en-US", {
       year: "numeric",
@@ -58,7 +59,6 @@ async function getAllPosts(req, res) {
       minute: "2-digit",
     }),
   }));
-  res.render("index", { posts: formatted });
 }
 
 module.exports = {

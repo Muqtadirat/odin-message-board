@@ -8,11 +8,12 @@ async function insertMessage(author, message) {
 }
 
 async function getMessageById(id) {
-  const { rows } = await pool.query("SELECT id FROM messages WHERE id = $1", [
-    id,
-  ]);
+  const { rows } = await pool.query(
+    "SELECT id, author, message, added FROM messages WHERE id = $1",
+    [id],
+  );
+  return rows[0];
 }
-
 async function getAllMessages() {
   const { rows } = await pool.query("SELECT * FROM messages");
 

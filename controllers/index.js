@@ -61,7 +61,24 @@ async function getAllPosts(req, res) {
   }));
 }
 
+async function getPostById(id) {
+  const post = await db.getMessageById(id);
+  if (!post) return null;
+
+  return {
+    ...post,
+    added: new Date(post.added).toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
+  };
+}
+
 module.exports = {
   createPost,
   getAllPosts,
+  getPostById,
 };

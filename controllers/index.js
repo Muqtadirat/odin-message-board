@@ -41,15 +41,24 @@ const createPost = [
     }
 
     const { message, author } = matchedData(req);
-    await db.insertMessage(message, author);
+    await db.insertMessage(author, message);
     res.redirect("/");
   },
 ];
 
 async function getAllPosts(req, res) {
   const posts = await db.getAllMessages();
-
-  return posts;
+  const formatted = posts.map((post) => ({
+    ...post,
+    added: new Date(post.added).toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
+  }));
+  res.render("index", { posts: formatted });
 }
 
 module.exports = {

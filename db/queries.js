@@ -11,13 +11,11 @@ async function getMessageById(id) {
   const { rows } = await pool.query("SELECT id FROM messages WHERE id = $1", [
     id,
   ]);
-
-  console.log("message id", id);
 }
 
 async function getAllMessages() {
   const { rows } = await pool.query("SELECT * FROM messages");
-//   console.log("fetch q", rows);
+
   return rows;
 }
 
